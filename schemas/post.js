@@ -7,6 +7,7 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
+      description: 'My post',
       title: 'Title',
       type: 'string',
     }),
@@ -34,11 +35,19 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      name: 'description',
+      title: 'description',
+      type: 'text',
+      options: {
+        hotspot: true,
+      },
     }),
+    // defineField({
+    //   name: 'categories',
+    //   title: 'Categories',
+    //   type: 'array',
+    //   of: [{type: 'reference', to: {type: 'category'}}],
+    // }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
@@ -48,6 +57,19 @@ export default defineType({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'tags',
+      title: 'tags',
+      type: 'array',
+      of: [
+        {
+          type: "string",
+        }
+      ],
+      options: {
+        layout: "tags"
+      },
     }),
   ],
 
